@@ -5,30 +5,14 @@
   <link rel="stylesheet" href="css.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/test.js"></script>
   <meta charset="UTF-8">
   <title>Keith</title>
 
   <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
-  <script src="js/test.js"></script>
+  <script src="js/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
-  <script type="text/javascript">
-  // FirebaseUI config.
-  var uiConfig = {
-    signInSuccessUrl: 'sign_in.html',
-    signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users.
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    ],
-    // Terms of service url.
-    tosUrl: 'sign_in.html'
-  };
-  // Initialize the FirebaseUI Widget using Firebase.
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  // The start method will wait until the DOM is loaded.
-  ui.start('#firebaseui-auth-container', uiConfig);
-  </script>
+  <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
   <h1>Kieth&copy;</h1>
