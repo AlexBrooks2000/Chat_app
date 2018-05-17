@@ -7,7 +7,44 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="firebase.js"></script>
+<<<<<<< HEAD
 <
+=======
+<meta charset="UTF-8">
+ <title>Sample FirebaseUI App</title>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyANIc4EP-wbtHBGZmFvs_IrQDj9SoD-ilc",
+  authDomain: "chat-app-62107.firebaseapp.com",
+  databaseURL: "https://chat-app-62107.firebaseio.com",
+  projectId: "chat-app-62107",
+  storageBucket: "chat-app-62107.appspot.com",
+  messagingSenderId: "151166832795"
+};
+firebase.initializeApp(config);
+</script>
+ <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+ <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
+ <script type="text/javascript">
+   // FirebaseUI config.
+   var uiConfig = {
+     signInSuccessUrl: '<url-to-redirect-to-on-success>',
+     signInOptions: [
+       // Leave the lines as is for the providers you want to offer your users.
+       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+     ],
+     // Terms of service url.
+     tosUrl: '<your-tos-url>'
+   };
+
+   // Initialize the FirebaseUI Widget using Firebase.
+   var ui = new firebaseui.auth.AuthUI(firebase.auth());
+   // The start method will wait until the DOM is loaded.
+   ui.start('#firebaseui-auth-container', uiConfig);
+>>>>>>> b9395cb0c0bd6203a17bdb0d6bb152ec55009781
  </script>
 </head>
 <body>
@@ -17,6 +54,8 @@
     <h3>The Chat App</h3>
   </div>
 </div>
+<h1>Welcome to My Awesome App</h1>
+<div id="firebaseui-auth-container"></div>
 <div class="container">
   <!-- first collumn -->
   <div class="row">

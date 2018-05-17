@@ -8,3 +8,18 @@ var config = {
   messagingSenderId: "151166832795"
 };
 firebase.initializeApp(config);
+
+var provider = new firebase.auth.GoogleAuthProvider();
+auth.signInWithRedirect(provider)
+auth.getRedirectResult().then(function(result) {
+  var user = result.user;
+  var credential = result.credential;
+  var operationType = result.operationType;
+  }, function(error) {
+    var email = error.email;
+    var credential = error.credential;
+    if (error.code === 'auth/account-exists-with-different-credential') {
+      auth.fetchProvidersForEmail(email).then(function(providers) {
+      });
+    }
+  });
