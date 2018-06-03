@@ -1,36 +1,20 @@
-const messaging = firebase.messaging();
-messaging.requestPermission()
-.then(function() {
-  console.log("have permission");
-  return messaging.getToken()
-})
-.then(function(token) {
-  console.log(token);
-})
-.catch(function(err){
-  console.log("error occured");
-})
+var database = firebase.database();
+var chat = firebase.database().ref().child("messages");
 
-messaging.onMessage(function(payload) {
-  console.log("onMessage: ", payload)
+chat.on("child_added", function(childSnapshot){
+  chat = childSnapshot.val();
+  $("#mainChat").html(chat.mainChat)
+  $("#link").attr("href", chat.link)
 });
-//retrieving registration token
-// Get Instance ID token. Initially this makes a network call, once retrieved
-// subsequent calls to getToken will return from cache.
-messaging.getToken().then(function(currentToken) {
-  if (currentToken) {
-    sendTokenToServer(currentToken);
-    updateUIForPushEnabled(currentToken);
-  } else {
-    // Show permission request.
-    console.log('No Instance ID token available. Request permission to generate one.');
-    // Show permission UI.
-    updateUIForPushPermissionRequired();
-    setTokenSentToServer(false);
-  }
-}).catch(function(err) {
-  console.log('An error occurred while retrieving token. ', err);
-  showToken('Error retrieving Instance ID token. ', err);
-  setTokenSentToServer(false);
+
+chat.on('value', function(datasnapshot) {
+  mainChat.innerText = datasnapshot.val();
 });
-//end of retreiving registration token
+
+function addMessage() {
+  var inputMessage = document.getElementById("input").value;
+  firebase.database().ref().child("messages").push().set({
+    message: inputMessage
+  });
+  console.log("added to database");
+}
