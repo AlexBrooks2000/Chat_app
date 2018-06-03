@@ -18,7 +18,7 @@ const sendButton = document.querySelector('#SendMessage');
 sendButton.addEventListener("click", function() {
   const textToSave = inputTextField.value;
   console.log("sending" +textToSave);
-  docRef.set({
+  docRef.update({
     finalmessage: textToSave
   }).then(function() {
     console.log("message saved");
