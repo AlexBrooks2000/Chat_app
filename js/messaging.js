@@ -1,3 +1,4 @@
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -32,7 +33,8 @@ chatRef.on("child_added", snap => {
 
 function addMessage() {
   var inputMessage = document.getElementById("input").value;
-  var name = firebase.auth().currentUser;
+  var name = firebase.auth().currentUser.displayName;
+  console.log(name);
   firebase.database().ref().child("messages").push().set({
     message: inputMessage,
     user: name
