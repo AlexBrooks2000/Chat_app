@@ -1,11 +1,10 @@
 var database = firebase.database();
-var chat = firebase.database().ref().child("messages");
-
-chat.on("child_added", function(childSnapshot){
-  chat = childSnapshot.val();
-  $("#mainChat").html(chat.mainChat)
-  $("#link").attr("href", chat.link)
+var chatRef = firebase.database().ref().child("messages");
+chatRef.on("child_added", snap => {
+  var chats = snap.child("message").val();
+  $("#mainChat").append(chats + "<p>\n</p>")
 });
+
 
 chat.on('value', function(datasnapshot) {
   mainChat.innerText = datasnapshot.val();
