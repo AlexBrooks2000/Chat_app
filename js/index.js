@@ -1,6 +1,7 @@
+//user sign in
 // FirebaseUI config.
 var uiConfig = {
-  signInSuccessUrl: 'dashboard.html',
+  signInSuccessUrl: 'messaging.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -12,3 +13,13 @@ var uiConfig = {
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
+//end of user sign in
+
+/*//user sign out
+firebase.auth().signOut().then(function() {
+  console.log("user signed out")
+}).catch(function(error) {
+  console.log("error signing out")
+});
+//end of user sign out
+*/

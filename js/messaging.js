@@ -23,7 +23,7 @@ var chatRef = firebase.database().ref().child("messages");
 chatRef.on("child_added", snap => {
   var chats = snap.child("message").val();
   var username = snap.child("user").val();
-  $("#mainChat").append(username + "<p>: </p>" + chats + "<p>\n</p>")
+  $("#mainChat").append(username + "<p>: </p>"+ chats +"<p></p>")
 });
 
 
@@ -34,10 +34,13 @@ chatRef.on("child_added", snap => {
 function addMessage() {
   var inputMessage = document.getElementById("input").value;
   var name = firebase.auth().currentUser.displayName;
-  console.log(name);
   firebase.database().ref().child("messages").push().set({
     message: inputMessage,
     user: name
   });
   console.log("added to database");
+}
+
+function signUserOut(){
+    
 }
