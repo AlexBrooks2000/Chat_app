@@ -47,4 +47,4 @@ function signOutUser() {
   .catch(function(error) {
     console.log("error signing out")
   });
-}
+}  
