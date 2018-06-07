@@ -2,25 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Main Chat</title>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
     <script src="js/firebase.js"></script>
-    <script src="js/index.js"></script>
     <script src="js/messaging.js"></script>
+    <link rel="stylecheet" href="css/messaging.css" />
     <title>Keith</title>
 </head>
 <body>
-  <h1>Keith&copy;</h1>
-  <button onclick="signOutUser()">logout</button>
-  <p id="mainChat"><p>
-  <input type="text" placeholder="type here" id="input" />
-  <button onclick="addMessage()">send</button>
+  <div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+      <h1>Keith&copy;</h1>
+      <h3>The Chat App</h3>
+  </div>
+    <button onclick="signOutUser()">logout</button>
+    <p id="mainChat"><p>
+    <input type="text" placeholder="type here" id="input" />
+    <button onclick="addMessage()">send</button>
+  </div>
 </body>
 </html>
