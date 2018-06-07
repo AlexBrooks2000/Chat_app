@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    console.log(displayName);
+    console.log(displayName, "is logged in");
     return displayName;
   } else {
     // User is signed out.
@@ -23,13 +23,9 @@ var chatRef = firebase.database().ref().child("messages");
 chatRef.on("child_added", snap => {
   var chats = snap.child("message").val();
   var username = snap.child("user").val();
-  $("#mainChat").append(username + "<p>: </p>"+ chats +"<p></p>")
+  $("#mainChat").append("<tr><td>" + username +  "<p />" + "<p>: </p>"+ "<p />" + chats + "</td></tr>" + "<p>\n</p>")
 });
 
-
-/*chat.on('value', function(datasnapshot) {
-  mainChat.innerText = datasnapshot.val();
-});*/
 
 function addMessage() {
   var inputMessage = document.getElementById("input").value;
@@ -41,6 +37,14 @@ function addMessage() {
   console.log("added to database");
 }
 
-function signUserOut(){
-    
+
+function signOutUser() {
+  firebase.auth().signOut()
+  .then(function() {
+    console.log("user successfully signed out")
+    window.location.replace("index.html");
+  })
+  .catch(function(error) {
+    console.log("error signing out")
+  });
 }
